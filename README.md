@@ -32,7 +32,41 @@ lc.remove_nans().flatten(window_length=401).fold(period=3.5225).bin(binsize=10).
 
 ![Screenshot 2023-10-13 234402](https://github.com/Anushka091922/My-Little-Exoplanets-Finder/assets/114327511/635ac94f-13d5-45e9-960d-54d29343c6a3)
 
+import numpy as np
+periodogram = flat_lc.to_periodogram(method="bls", period=np.arange(0.3, 10, 0.001))
+periodogram.plot();
+
+![Screenshot 2023-10-13 234549](https://github.com/Anushka091922/My-Little-Exoplanets-Finder/assets/114327511/5974a3a0-b718-4f56-a043-c356e5e5ba32)
 
 
+best_fit_period = periodogram.period_at_max_power
+print('Best fit period: {:.5f}'.format(best_fit_period))
 
+Best fit period: 3.52200 d
+
+In [ ]:
+tpf = search_targetpixelfile('EPIC 212593538', campaign=6).download()
+lc = tpf.to_lightcurve(aperture_mask='all')
+lc.plot();
+![Screenshot 2023-10-13 234608](https://github.com/Anushka091922/My-Little-Exoplanets-Finder/assets/114327511/202e4728-8864-4b66-a6ea-b83a8a9a48ef)
+
+In [ ]:
+from lightkurve import search_targetpixelfile
+search_result = lk.search_targetpixelfile('Pi Mensae', mission='TESS', sector=1)
+tpf = search_result.download(quality_bitmask='default')
+
+In [ ]:
+tpf.mission
+tpf.targetid 
+
+Out[ ]:
+261136679
+In [ ]:
+tpf.plot(aperture_mask=tpf.pipeline_mask);
+
+![Screenshot 2023-10-13 234625](https://github.com/Anushka091922/My-Little-Exoplanets-Finder/assets/114327511/808de74b-6d5f-4181-9dbe-9e5aaa2af462)
+
+lc = tpf.to_lightcurve()
+lc.scatter();
+![Screenshot 2023-10-13 234640](https://github.com/Anushka091922/My-Little-Exoplanets-Finder/assets/114327511/69a94cdb-2520-43d7-9b35-bb117493a6e5)
 
