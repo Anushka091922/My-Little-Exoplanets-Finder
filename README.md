@@ -74,21 +74,25 @@ lc = tpf.to_lightcurve(aperture_mask=aperture_mask)
 lc.scatter();
 ![Screenshot 2023-10-13 234657](https://github.com/Anushka091922/My-Little-Exoplanets-Finder/assets/114327511/b03c9c32-ed81-4493-8cb4-cd40d5321355)
 
+![Screenshot 2023-10-13 234657](https://github.com/Anushka091922/My-Little-Exoplanets-Finder/assets/114327511/80729e80-8a23-4706-bc6a-49609a5c0e07)
 
 In [ ]:
 flat_lc = lc.flatten(window_length=1001)
 flat_lc.errorbar();
+![Screenshot 2023-10-13 234713](https://github.com/Anushka091922/My-Little-Exoplanets-Finder/assets/114327511/c44d6a78-97d6-47b9-8ddc-2332932c3125)
 
 
 In [ ]:
 mask = (flat_lc.time < 1346) | (flat_lc.time > 1350)
 masked_lc = flat_lc[mask]
 masked_lc.scatter(s=0.1);
+![Screenshot 2023-10-13 234728](https://github.com/Anushka091922/My-Little-Exoplanets-Finder/assets/114327511/0c44d2d4-10e8-4954-8303-6d73fcf092f9)
 
 
 In [ ]:
 clipped_lc = masked_lc.remove_outliers(sigma=6)
 clipped_lc.scatter(s=0.1);
+![Screenshot 2023-10-13 234744](https://github.com/Anushka091922/My-Little-Exoplanets-Finder/assets/114327511/0a024b73-fa4e-4031-ad04-186402862fb2)
 
 
 In [ ]:
@@ -124,6 +128,7 @@ TessTargetPixelFile(TICID: 419012256)
 In [ ]:
 tpf.plot(aperture_mask=tpf.pipeline_mask);
 
+![Screenshot 2023-10-13 234810](https://github.com/Anushka091922/My-Little-Exoplanets-Finder/assets/114327511/de6f12cd-58c2-4170-a712-fc9fa3bc0f4a)
 
 In [ ]:
 lc = tpf.to_lightcurve()
