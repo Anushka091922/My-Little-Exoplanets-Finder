@@ -30,4 +30,9 @@ Stellar Variability Mitigation: Robust techniques are applied to remove noise fr
 Project:
 lc.remove_nans().flatten(window_length=401).fold(period=3.5225).bin(binsize=10).plot();
 
+![Screenshot 2023-10-13 234402](https://github.com/Anushka091922/My-Little-Exoplanets-Finder/assets/114327511/635ac94f-13d5-45e9-960d-54d29343c6a3)
+
+
+
+
 
